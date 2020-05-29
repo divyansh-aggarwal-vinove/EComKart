@@ -45,37 +45,37 @@ const findAll = (req, res, next) => {
     });
 };
 
-// const getProduct = (req, res, next) => {
-//   const filter = req.body.filter || '';
-//   const sort = {
-//     [req.body.sortKey || "_id"]: req.body.sortOrder || 1
-//   };
-//   const pageOptions = {
-//     page: req.body.page || 0,
-//     limit: req.body.limit || 10
-//   }
-//   Products.find()
-//   .where(filter)
-//   .sort(sort)
-//   .skip(pageOptions.page * pageOptions.limit)
-//   .limit(pageOptions.limit)
-//   .then(products => {
-//     Products.collection.countDocuments(filter).then(totalCount => {
-//       const data = {
-//         products,
-//         totalCount,
-//         ...pageOptions
-//       };
-//       getAllResponse(res, data);
-//     });
-//   })
-//   .catch(err => {
-//     error500(
-//       res,
-//       err.message || "Some error occurred while retrieving product."
-//     );
-//   });
-// };
+const getProduct = (req, res, next) => {
+  const filter = req.body.filter || '';
+  const sort = {
+    [req.body.sortKey || "_id"]: req.body.sortOrder || 1
+  };
+  const pageOptions = {
+    page: req.body.page || 0,
+    limit: req.body.limit || 10
+  }
+  Products.find()
+  .where(filter)
+  .sort(sort)
+  .skip(pageOptions.page * pageOptions.limit)
+  .limit(pageOptions.limit)
+  .then(products => {
+    Products.collection.countDocuments(filter).then(totalCount => {
+      const data = {
+        products,
+        totalCount,
+        ...pageOptions
+      };
+      getAllResponse(res, data);
+    });
+  })
+  .catch(err => {
+    error500(
+      res,
+      err.message || "Some error occurred while retrieving product."
+    );
+  });
+};
 
 const findOne = (req, res, next) => {
   Products.findById(req.params.id)
@@ -119,6 +119,6 @@ module.exports = {
   findAll,
   findOne,
   update,
-  // getProduct,
+  getProduct,
   delete: deleteProduct
 };

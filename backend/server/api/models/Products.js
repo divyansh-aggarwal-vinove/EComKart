@@ -32,9 +32,9 @@ const productsSchema = new Schema({
         trim: String,
         maxlength: [250, 'Must be less than 50 characters.']
     },
-    ImageLink: String
-    // createdAt: {type: Date, default: Date.now},
-    // updatedAt: {type: Date, default: Date.now}
+    ImageLink: String,
+    createdAt: {type: Date, default: Date.now},
+    updatedAt: {type: Date, default: Date.now}
 
 });
 

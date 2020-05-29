@@ -65,7 +65,7 @@ const updateCart= (req, res, next) => {
     Cart.findById(id).then(
       cart => {
         if (!cart) error404(res, "Cart not found with id " + id);
-        // console.log({_id: `ObjectId("${id}")`}, { $push: {'ProductIds': data} })
+        console.log({_id: `ObjectId("${id}")`}, { $push: {'ProductIds': data} })
         Cart.findOneAndUpdate({'_id': id}, { '$push': {'ProductIds': data} })
         .then(respon => {
             response(res, 'Item added to cart');
@@ -83,7 +83,7 @@ const updateCartItemQty = (req, res, next) => {
   const data = req.body;
     Cart.findById(id).then(
       cart => {
-        // console.log(id, data)
+        console.log(id, data)
         if (!cart) error404(res, "Cart not found with id " + id);
         Cart.findOneAndUpdate({_id: id, 'ProductIds.ProductId': data.ProductId}, { $set: {'ProductIds.$.Quantity': data.Quantity} })
         .then(cart => {
@@ -128,7 +128,7 @@ const deleteCart = (req, res, next) => {
 };
 
 module.exports = {
-  // create,
+  create,
   findOne,
   updateCart,
   updateCartItemQty,
