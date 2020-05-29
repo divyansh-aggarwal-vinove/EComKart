@@ -1,0 +1,54 @@
+h1 {
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 30px;
+}
+
+.table-dark{
+    background-color: #181818;
+}
+
+hr {
+    width: 100%;
+    border-width: 3px;
+    background-color:#181818;
+}
+
+button {
+    color: #fff;
+    font-size: small;
+    padding:4px;
+    background-color: #181818;
+    border: 2px solid #f53b57;
+    border-radius: 5px;
+    transition: 1.2s;
+}
+
+#new {
+    left:11%;
+    width: 20%;
+    position: relative;
+    transform: translateX(-50%);
+}
+
+#edit{
+    font-size: small;
+    padding: 0 10px 0 10px;
+}
+
+#clear {
+    width: 20%;
+    left:90%;
+    position: relative;
+    transform: translateX(-50%)
+}
+
+#del {
+    font-size: small;
+    padding: 0 10px 0 10px;
+}
+
+button:hover {
+    border: 2px solid #2ecc71;
+}
