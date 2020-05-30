@@ -12,7 +12,7 @@ const alogin= (req, res, next) =>{
   var auth = new Buffer.from(authHeader.split(' ')[1], 'base64').toString().split(':');
   var user = auth[0];
   var pass = auth[1];
-  if (user == 'admin' && pass == 'password') {
+  if (user == 'admin@123' && pass == 'password') {
       res.send("Authenticated");    //   next(); // authorized
   } else {
       var err = new Error('You are not authenticated!');

@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const cartController = require('../controllers/carts');
-const authenticate=require('../authenticate');
+// const authenticate=require('../authenticate');
 
 //adding products from dashboard to the cart
 router.post('/', cartController.create);

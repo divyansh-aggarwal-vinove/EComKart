@@ -31,6 +31,7 @@ const create = (req, res, next) => {
 };
 
 const findAll = (req, res, next) => {
+  const filter = req.body.filter || '';
   Products.find()
   .where(filter)
 
@@ -57,14 +58,11 @@ const getProduct = (req, res, next) => {
   Products.find()
   .where(filter)
   .sort(sort)
-  .skip(pageOptions.page * pageOptions.limit)
-  .limit(pageOptions.limit)
   .then(products => {
     Products.collection.countDocuments(filter).then(totalCount => {
       const data = {
         products,
-        totalCount,
-        ...pageOptions
+
       };
       getAllResponse(res, data);
     });

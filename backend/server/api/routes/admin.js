@@ -1,17 +1,14 @@
 //adding users and products
 const express = require('express');
 const router = express.Router();
-const passport = require('passport');
-const bodyParser=require('body-parser');
-var user=require('../models/users');
 const productController = require('../controllers/products');
-const authenticate=require('../authenticate');
+const UserController=require('../controllers/users');
+const checkAuth = require('../lib/check-auth');
 
 
-router.use(bodyParser.json());
-
+//Products Routes
 router.get('/products', productController.findAll);
-//gives all the products present in the cart with total price
+
 router.post('/products', productController.getProduct);
 
 router.post('/products/create', productController.create);
@@ -23,28 +20,13 @@ router.post('/products/:id', productController.update);
 router.delete('/products/:id', productController.delete);
 
 
-router.get("/users",function(req,res,next){
-  res.send('response with a resource');
-});
+//User Routes
+router.post("/user/signup", UserController.user_signup);
 
-router.post('/users/signup', (req, res, next) => {
-    User.register(new User({username: req.body.username}), 
-      req.body.password, (err, user) => {
-      if(err) {
-        res.statusCode = 500;
-        res.setHeader('Content-Type', 'application/json');
-        res.json({err: err});
-      }
-      else {
-        passport.authenticate('local')(req, res, () => {
-          res.statusCode = 200;
-          res.setHeader('Content-Type', 'application/json');
-          res.json({success: true, status: 'Registration Successful!'});
-        });
-      }
-    });
-  });
+router.get("/user/:userId",   UserController.curr_User);
 
+router.delete("/user/:userId",   UserController.user_delete);
 
+router.put("/user/:userId",   UserController.user_edit);
 
 module.exports = router;

@@ -57,7 +57,8 @@ const findOne = (req, res, next) => {
       NotFoundInCatch(res, err, `Cart not found with id ${err.value}`);
       error500(res, `Error retrieving cart with id ${err.value}`);
     });
-};
+  
+  };
 
 const updateCart= (req, res, next) => {
   const id = req.params.id;
