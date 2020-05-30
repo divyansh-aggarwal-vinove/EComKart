@@ -1,1 +1,14 @@
-<p>admin works!</p>
+<div class="container">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color:#000">
+        <h1 class="navbar-brand" style="color:#fff" href="#">EComKart</h1>
+        <div class="navigation">
+            <a [routerLink]="['/admin/userlist']" routerLinkActive="active">Users</a>
+            <a [routerLink]="['/admin/products']" routerLinkActive="active">Products</a>
+        </div>
+    </nav>
+</div>
+<router-outlet></router-outlet>
+<footer>
+    <hr>
+    <p>2020 Copyright© All Rights Reserved.<br><i>Website made by ADH</i></p>
+</footer>
