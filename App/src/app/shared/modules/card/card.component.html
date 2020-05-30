@@ -1,0 +1,85 @@
+<!-- <div class="card">
+    <div class="product-image">
+        <img [src]="product.ImageLink" alt="Denim Jeans">
+        <div class="black-cover">
+            <a [routerLink]="['/product/', product._id]" class="details-btn">Show Details</a>
+            <button *ngIf="cartComponent" class="details-btn remove" (click)="removeCartItem(product)">Remove</button>
+        </div>
+    </div>
+    <div class="product-info">
+        <p class="title">{{product.ProductName}}</p>
+        <p class="price">BDT {{product.Price | number: '1.2-2'}}</p>
+    </div>
+    <p class="product-qty">Available Quantity: <span>{{product.Quantity}}</span></p>  
+    <div class="add-cart-action">
+        <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
+        <button class="add-cart-btn" *ngIf="!product.cartQty" [ngClass]="loading ? 'disable' : ''" (click)="addToCart(product)">Add to Cart</button>
+        <div class="btn-cart-action" *ngIf="product.cartQty">
+          <span class="btn-inc-dec" [ngClass]="decCheck ? (loading ? 'disable' : '') : 'disable'" (click)="cartQtyChange('dec', product)">-</span>
+          <span class="qty">{{product.cartQty}}</span>
+          <span class="btn-inc-dec" [ngClass]="incCheck ? (loading ? 'disable' : '') : 'disable'" (click)="cartQtyChange('inc', product)">+</span>
+        </div>
+    </div>
+</div> -->
+<div class="wrapper">
+    <div class="container">
+      <div [routerLink]="['/product/', product._id]" class="top"></div>
+      <div class="bottom">
+        <div class="left">
+          <div class="details">
+            <button *ngIf="cartComponent" class="details-btn remove" (click)="removeCartItem(product)">Remove</button>
+            <h1>{{product.ProductName}}</h1>
+            <p>£{{product.Price | number: '1.2-2'}}</p>
+          </div>
+          <div class="buy" *ngIf="!product.cartQty" [ngClass]="loading ? 'disable' : ''" (click)="addToCart(product)"><i class="material-icons">ADD</i></div>
+        </div>
+        <div class="right">
+          <div class="done"><i class="material-icons">done</i></div>
+          <div class="details">
+            <h1>Chair</h1>
+            <p>Added to your cart</p>
+          </div>
+          <div class="remove"><i class="material-icons">clear</i></div>
+        </div>
+      </div>
+    </div>
+    <div class="inside">
+      <div class="icon"><i class="material-icons">info_outline</i></div>
+      <div class="contents">
+        <table>
+          <tr>
+            <th>Available Quantity:</th>
+            <th>DEtails</th>
+          </tr>
+          <tr>
+            <td>{{product.Quantity}}</td>
+            <td [routerLink]="['/product/', product._id]" >Show Details</td>
+          </tr>
+          <tr>
+            <th>Something</th>
+            <th>Something</th>
+          </tr>
+          <tr>
+            <td>200mm</td>
+            <td>200mm</td>
+          </tr>
+          
+        </table>
+      </div>
+    </div>
+</div>
+  <div class="btn-cart-action" *ngIf="product.cartQty">
+    <span class="btn-inc-dec" [ngClass]="decCheck ? (loading ? 'disable' : '') : 'disable'" (click)="cartQtyChange('dec', product)">-</span>
+    <span class="qty">{{product.cartQty}}</span>
+    <span class="btn-inc-dec" [ngClass]="incCheck ? (loading ? 'disable' : '') : 'disable'" (click)="cartQtyChange('inc', product)">+</span>
+  </div>
+
+  <script>
+      $('.buy').click(function(){
+  $('.bottom').addClass("clicked");
+});
+
+$('.remove').click(function(){
+  $('.bottom').removeClass("clicked");
+});
+  </script>

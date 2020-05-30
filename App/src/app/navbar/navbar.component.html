@@ -1,0 +1,48 @@
+<header class="header">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+            <img src="https://spreecommerce.org/wp-content/uploads/2019/02/spree-logo@2x.png" height="30" alt="logo">
+          </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+        
+        
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/products']" routerLinkActive="active">Products</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" [routerLink]="['/dashboard']">Dashboard</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/my-cart']">My Cart</a>
+          </li>
+          <!-- <li class="nav-item">
+            <i class="fas fa-shopping-cart pl-0"><app-cart-panel></app-cart-panel></i>
+          </li> -->
+      
+        </ul>
+      </div>
+    </div>
+
+    <app-cart-panel></app-cart-panel>
+  </nav>
+    <!-- <nav class="navbar">
+       <div class="logo">
+        <img
+          src="https://spreecommerce.org/wp-content/uploads/2019/02/spree-logo@2x.png"
+          alt="logo"
+        />
+      </div> -->
+      <!--<div class="navigation">
+        <a [routerLink]="['/dashboard']" routerLinkActive="active">Dashboard</a>
+        <a [routerLink]="['/products']" routerLinkActive="active">Products</a>
+        <a [routerLink]="['/my-cart']" routerLinkActive="active">My Cart</a>
+      </div>
+      <app-cart-panel></app-cart-panel>
+    </nav> -->
+  </header>
+  
