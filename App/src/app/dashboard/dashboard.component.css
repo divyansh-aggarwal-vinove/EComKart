@@ -1,5 +1,46 @@
+h4{
+    margin-left: 40%;
+}
+
+a {
+    text-decoration: none;
+    color: #BDBDBD;
+}
+a:hover {
+    color: #fff;
+}
+
+.nav-item:hover {
+    color: #fff;
+}
+
+.row{
+    margin-top:7%;
+}
+
+.card{
+    background-color: #000;
+    border: 2px solid rgba(0,0,0,.125);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.products .card img {
+    transition: all 300ms;
+}
+.products .card img:hover {
+    transform: scale(0.95);
+}
+
+.card-title, .card-text {
+    color: #fff;
+}
+
+
+
 footer{
-    position: fixed;
+    margin-top:7%;
+    position: sticky;
     left: 0;
     bottom: 0;
     width: 100%;

@@ -12,6 +12,7 @@ import { ProductDetailsComponent } from './admin/product-details/product-details
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MyorderComponent } from './dashboard/myorder/myorder.component';
 import { CartComponent } from './dashboard/cart/cart.component';
+import { LoginService } from './login.service';
 import { UserregisterService } from './admin/userregister.service';
 import { ProductdetailsService } from './admin/productdetails.service';
 import { UserListComponent } from './admin/user-list/user-list.component';
@@ -37,7 +38,8 @@ import { ProductListComponent } from './admin/product-list/product-list.componen
     HttpClientModule
   ],
   providers: [UserregisterService,
-    ProductdetailsService
+    ProductdetailsService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })

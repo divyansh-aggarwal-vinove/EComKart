@@ -37,7 +37,7 @@
       <button type="submit" *ngIf="isRegister" [disabled]="productForm.invalid">Add Product</button>
       <button type="reset" *ngIf="isRegister">Reset</button>
   
-      <button *ngIf="!isRegister" routerLink="/" [disabled]="productForm.invalid" type="submit" (click)="onUpdate()" style="left: 50%;">Submit</button>
+      <button *ngIf="!isRegister" routerLink="/admin/productlist" [disabled]="productForm.invalid" type="submit" (click)="onUpdate()" style="left: 50%;">Submit</button>
   </form>
   
   </div>

@@ -72,7 +72,7 @@ export class UserRegisterComponent implements OnInit {
           this.successMessage = "New User Added Successfully"
         }
         else {
-          this.successMessage = "SomeError"
+          this.successMessage = "Some Error"
         }
       })
 
