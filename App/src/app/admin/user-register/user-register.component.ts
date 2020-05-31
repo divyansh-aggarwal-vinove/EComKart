@@ -34,10 +34,6 @@ export class UserRegisterComponent implements OnInit {
     return this.userForm.get('email');
   }
 
-  get username() {
-    return this.userForm.get('username');
-  }
-
   get password() {
     return this.userForm.get('password');
   }
@@ -53,7 +49,6 @@ export class UserRegisterComponent implements OnInit {
       contactno: ['', [Validators.required]],
       address: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      username: ['', [Validators.required, Validators.minLength(3)]],
       password: ['', Validators.required]
     });
     this.isRegister = true;
@@ -62,37 +57,37 @@ export class UserRegisterComponent implements OnInit {
 
 
   onSubmit() {
-    //this.userList.push(this.userForm.value);
-    // localStorage.setItem('user_data', JSON.stringify(this.userList));
-    // let yy = localStorage.getItem('user_data');
-    // console.log(yy);
+
     this._myservice.submitRegister(this.userForm.value)
       .subscribe(data => {
         if (data) {
-          this.successMessage = "New User Added Successfully"
+          this.successMessage = "New User Added Successfully";
+          alert(this.successMessage);
+          this.userForm.reset();
+          this.router.navigate(['/admin/userlist']);
         }
         else {
-          this.successMessage = "Some Error"
+          this.successMessage = "Some Error";
+          alert(this.successMessage);
         }
       })
-
-    this.userForm.reset();
-    this.router.navigate(['/admin/userlist']);
   }
 
   onUpdate() {
+
     this._myservice.updateRegister(this.userForm.value)
       .subscribe(data => {
         if (data) {
-          this.successMessage = "User Updated Successfully"
+          this.successMessage = "User Updated Successfully";
+          alert(this.successMessage);
+          this.userForm.reset();
+          this.router.navigate(['/admin/userlist']);
         }
         else {
-          this.successMessage = "Some Error"
+          this.successMessage = "Some Error";
+          alert(this.successMessage);
         }
       })
-
-    this.userForm.reset();
-    this.router.navigate(['/admin/userlist']);
   }
 
 }

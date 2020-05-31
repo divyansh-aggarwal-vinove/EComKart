@@ -26,8 +26,8 @@ export class ProductDetailsComponent implements OnInit {
     return this.productForm.get('prodDesc');
   }
 
-  get prodImage() {
-    return this.productForm.get('prodImage');
+  get prodImageURL() {
+    return this.productForm.get('prodImageURL');
   }
 
   constructor(private fb: FormBuilder, private router: Router, private route: ActivatedRoute, private myservice: ProductdetailsService) { }
@@ -38,7 +38,7 @@ export class ProductDetailsComponent implements OnInit {
       prodName: ['', Validators.required],
       prodPrice: ['', Validators.required],
       prodDesc: ['', Validators.required],
-      prodImage: ['', Validators.required]
+      prodImageURL: ['', Validators.required]
     });
     this.isRegister = true;
 
@@ -51,31 +51,35 @@ export class ProductDetailsComponent implements OnInit {
     this.myservice.submitProducts(this.productForm.value)
       .subscribe(data => {
         if (data) {
-          this.successMessage = "New User Added Successfully"
+          this.successMessage = "New Product Added Successfully";
+          alert(this.successMessage);
+          this.productForm.reset();
+          this.router.navigate(['/admin/productlist']);
         }
         else {
-          this.successMessage = "Some Error"
+          this.successMessage = "Some Error";
+          alert(this.successMessage);
         }
       })
 
-    this.productForm.reset();
-    this.router.navigate(['/admin/productlist']);
-    
   }
 
-  
+
   onUpdate() {
     this.myservice.updateProducts(this.productForm.value)
       .subscribe(data => {
         if (data) {
-          this.successMessage = "Product updated Successfully"
+          this.successMessage = "Product updated Successfully";
+          alert(this.successMessage);
+          this.productForm.reset();
+          this.router.navigate(['/admin/productlist']);
         }
         else {
-          this.successMessage = "Some Error"
+          this.successMessage = "Some Error";
+          alert(this.successMessage);
         }
       })
 
-    this.productForm.reset();
-    this.router.navigate(['/admin/productlist']);
+
   }
 }

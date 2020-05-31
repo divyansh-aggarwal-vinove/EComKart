@@ -23,20 +23,18 @@
           <th scope='col'>Contact No.</th>
           <th scope='col'>Address</th>
           <th scope='col'>Email</th>
-          <th scope='col'>Userid</th>
           <!-- <th scope='col'>Password</th> -->
           <th scope='col'></th>
           <th scope='col'></th>
         </tr>
       </thead>
-      <tr *ngFor="let pp of sdat; let num = index">
+      <tr *ngFor="let pp of userDetails; let num = index">
         <td scope='row'>==></td>
         <td>{{ pp.name }}</td>
         <td>{{ pp.age }}</td>
         <td>{{ pp.contactno }}</td>
         <td>{{ pp.address }}</td>
         <td>{{ pp.email }}</td>
-        <td>{{ pp.username }}</td>
         <!-- <td>{{ pp.password }}</td> -->
         <td><button type="button" id="edit" (click) = "onEdit(num)">Edit</button></td>
         <td><button type="button" id="del" (click) = "onDel(num)" >Delete</button></td>

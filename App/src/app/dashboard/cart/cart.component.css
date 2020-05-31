@@ -1,7 +1,9 @@
 h4{
     margin-left: 40%;
 }
-
+h3{
+    color: #000;
+}
 a {
     text-decoration: none;
     color: #BDBDBD;
@@ -14,7 +16,7 @@ a:hover {
     color: #fff;
 }
 .container{
-    margin-top: 10%;
+    margin-top: 6%;
 }
 h1 {
     color: #000;
@@ -23,7 +25,7 @@ h1 {
 }
 
 .ab{
-    width: 65%;
+    width: 100%;
     border-width: 3px;
     background-color:#181818;
 }
@@ -32,8 +34,29 @@ h1 {
     margin-left:40%;
 }
 
+.bb{
+    margin-left: 0%;
+}
+
+.img-thumbnail {
+    background-color: black;
+}
+
+.card{
+    height:11rem;
+    background-color: #000;
+    border: 2px solid rgba(0,0,0,.125);
+}
+
+.card-title, .card-text {
+    color: #fff;
+}
+
+.img-fluid {    
+    width:60%;
+}
 footer{
-    position: fixed;
+    position: sticky;
     left: 0;
     bottom: 0;
     width: 100%;
@@ -42,7 +65,7 @@ footer{
 
 footer hr {
     border: 2px solid #f53b57;
-    margin-top: 0;
+    margin-top: 20px;
 }
 
 footer i{

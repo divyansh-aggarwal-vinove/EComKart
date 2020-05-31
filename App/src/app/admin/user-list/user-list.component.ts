@@ -8,17 +8,26 @@ import { UserregisterService } from '../userregister.service';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
+  userDetails;
 
   constructor(private router: Router, private _myservice: UserregisterService) { }
 
   ngOnInit(): void {
-    let sdat;
+
+    this._myservice.getUserlist()
+      .subscribe(data => {
+        this.userDetails = data['users'];
+        //console.log(this.userDetails);
+    });
+      
   }
 
-  sdat = this._myservice.getUserlist();
-  
-  cAll(){}
-  onEdit(id){}
-  onDel(id){}
+  cAll() { }
+  onEdit(num) { }
+  onDel(num) { }
+
+
+
+
 
 }

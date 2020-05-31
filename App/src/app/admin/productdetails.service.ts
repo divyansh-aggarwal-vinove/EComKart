@@ -10,7 +10,7 @@ export class ProductdetailsService {
   constructor(private http: HttpClient) { }
 
   submitProducts(body): Observable<any> {
-    return this.http.post('http://localhost:3000/api/admin/products/create', body);
+    return this.http.post('http://localhost:3000/api/admin/products', body);
   }
 
   updateProducts(body): Observable<any> {

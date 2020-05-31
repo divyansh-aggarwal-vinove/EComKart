@@ -10,7 +10,7 @@ export class UserregisterService {
   constructor(private http: HttpClient) { }
 
   submitRegister(body): Observable<any> {
-    return this.http.post('http://localhost:3000/api/admin/users/create', body);
+    return this.http.post('http://localhost:3000/api/admin/user/signup', body);
   }
 
   updateRegister(body): Observable<any> {

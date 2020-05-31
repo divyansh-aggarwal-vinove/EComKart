@@ -8,14 +8,19 @@ import { ProductdetailsService } from '../productdetails.service';
   styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements OnInit {
+  productList: any;
 
   constructor(private router: Router, private myservice: ProductdetailsService) { }
 
   ngOnInit(): void {
-    let sdat = "";
+    this.myservice.getProducts()
+    .subscribe(data => {
+      this.productList = data['products'];
+      //console.log(this.productList);
+  });
+
   }
 
-  sdat = this.myservice.getProducts();
 
   cAll(){}
   onEdit(id){}

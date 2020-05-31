@@ -26,12 +26,12 @@
           <th scope='col'></th>
         </tr>
       </thead>
-      <tr *ngFor="let pp of sdat; let num = index">
+      <tr *ngFor="let pp of productList; let num = index">
         <td scope='row'>==></td>
         <td>{{ pp.prodName }}</td>
         <td>{{ pp.prodPrice }}</td>
         <td>{{ pp.prodDesc }}</td>
-        <td>{{ pp.prodImage }}</td>
+        <td>{{ pp.prodImageURL }}</td>
         <td><button type="button" id="edit" (click) = "onEdit(num)">Edit</button></td>
         <td><button type="button" id="del" (click) = "onDel(num)" >Delete</button></td>
       </tr>
