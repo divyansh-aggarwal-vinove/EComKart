@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,15 +9,11 @@ import { HttpClient } from '@angular/common/http';
 export class LoginService {
   constructor(private http: HttpClient) { }
 
-  adminLogin(body: any) {
-    // var headers = new Headers();
-    // headers.append('Content-Type', 'application/json');
-    return this.http.post('http:localhost:3000/api/home/admin/login', body, { observe: 'body' });
+  adminLogin(admin): Observable<any> {
+    return this.http.post('http:localhost:3000/api/home/admin/login', admin);
   }
 
-  userLogin(body: any) {
-    // var headers = new Headers();
-    // headers.append('Content-Type', 'application/json');
-    return this.http.post('http:localhost:3000/api/home/user/login', body, { observe: 'body' });
+  userLogin(user): Observable<any> {
+    return this.http.post('http:localhost:3000/api/home/user/login', user);
   }
 }

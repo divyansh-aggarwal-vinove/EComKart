@@ -10,9 +10,11 @@
 </div>
 
 <div class="container">
-    <h1>CHECKOUT</h1>
-    <hr>
-    <button type="submit" class="btn btn-success" id="rzp-button1" ng-click=btnClick>Checkout</button>
+    <h1><i>CHECKOUT</i></h1>
+    <hr class="ab">
+    <p class="text-center">---------->Added to Cart Items<-----------</p>
+    <hr class="ab">
+    <button type="submit" class="btn btn-success" id="rzp-button1" (click)="createRzpayOrder({'amount':'999'})">Checkout & Pay with Razorpay</button>
 </div>
 
 

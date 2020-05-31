@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,16 +9,12 @@ export class UserregisterService {
 
   constructor(private http: HttpClient) { }
 
-  submitRegister(body: any) {
-    // var headers = new Headers();
-    // headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/api/admin/users/create', body, { observe: 'body' });
+  submitRegister(body): Observable<any> {
+    return this.http.post('http://localhost:3000/api/admin/users/create', body);
   }
 
-  updateRegister(body: any) {
-    // var headers = new Headers();
-    // headers.append('Content-Type', 'application/json');
-    return this.http.put('http://localhost:3000/api/admin/users/update', body, { observe: 'body' });
+  updateRegister(body): Observable<any> {
+    return this.http.put('http://localhost:3000/api/admin/users/update', body);
   }
 
   getUserlist() {
@@ -25,6 +22,6 @@ export class UserregisterService {
   }
 
   delUser() {
-    return this.http.delete('http://localhost:3000/api/admin/users/delete', { observe: 'body' });
+    return this.http.delete('http://localhost:3000/api/admin/users/delete');
   }
 }

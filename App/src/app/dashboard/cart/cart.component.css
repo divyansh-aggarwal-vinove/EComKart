@@ -16,25 +16,22 @@ a:hover {
 .container{
     margin-top: 10%;
 }
-
-/* .btn {
-    color: #fff;
-    font-weight: 900;
-    padding:10px;
-    width: 18%;
-    background-color: #181818;
-    border: 3px solid #f53b57;
-    border-radius: 5px;
-    cursor: pointer;
-    right: 50%;
-    position: relative;
-    transform: translateX(-50%);
-    transition: 1.2s;
+h1 {
+    color: #000;
+    font-weight: bold;
+    text-align: center;
 }
 
-btn:hover {
-    border: 3px solid #2ecc71;
-} */
+.ab{
+    width: 65%;
+    border-width: 3px;
+    background-color:#181818;
+}
+
+.btn {
+    margin-left:40%;
+}
+
 footer{
     position: fixed;
     left: 0;

@@ -12,6 +12,7 @@ import { ProductDetailsComponent } from './admin/product-details/product-details
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MyorderComponent } from './dashboard/myorder/myorder.component';
 import { CartComponent } from './dashboard/cart/cart.component';
+import { WindowRefService } from './window-ref.service';
 import { LoginService } from './login.service';
 import { UserregisterService } from './admin/userregister.service';
 import { ProductdetailsService } from './admin/productdetails.service';
@@ -37,7 +38,8 @@ import { ProductListComponent } from './admin/product-list/product-list.componen
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [UserregisterService,
+  providers: [WindowRefService,
+    UserregisterService,
     ProductdetailsService,
     LoginService
   ],
