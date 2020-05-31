@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const config=require('../config');
+const config = require('../config');
 const User = require("../models/User");
 
 exports.user_signup = (req, res, next) => {
@@ -22,10 +22,10 @@ exports.user_signup = (req, res, next) => {
             const user = new User({
               _id: new mongoose.Types.ObjectId(),
               email: req.body.email,
-              name:req.body.name,
-              age:req.body.age,
-              contactno:req.body.contactno,
-              address:req.body.address,
+              name: req.body.name,
+              age: req.body.age,
+              contactno: req.body.contactno,
+              address: req.body.address,
               password: hash
             });
             user
@@ -69,7 +69,7 @@ exports.user_login = (req, res, next) => {
               email: user[0].email,
               userId: user[0]._id
             },
-           config.jwtkey,
+            config.jwtkey,
             {
               expiresIn: "1h"
             }
@@ -93,7 +93,7 @@ exports.user_login = (req, res, next) => {
 };
 
 exports.user_delete = (req, res, next) => {
-  User.remove({ _id: req.params.userId })
+  User.remove({ email: req.params.userId })
     .exec()
     .then(result => {
       res.status(200).json({
@@ -107,7 +107,7 @@ exports.user_delete = (req, res, next) => {
       });
     });
 };
-exports.user_edit=async (req, res, next) => {
+exports.user_edit = async (req, res, next) => {
   const id = req.params.userId;
   const email = req.body.email;
   const user = await User.findById({
@@ -150,7 +150,7 @@ exports.user_edit=async (req, res, next) => {
     })
   }
 }
-exports. curr_User= async (req, res, next) => {
+exports.curr_User = async (req, res, next) => {
   let id = req.params.id
   try {
     const user = await User.findById({

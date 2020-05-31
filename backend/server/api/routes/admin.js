@@ -1,32 +1,30 @@
 //adding users and products
 const express = require('express');
 const router = express.Router();
-const productController = require('../controllers/products');
-const UserController=require('../controllers/users');
+const productsController = require('../controllers/products');
+const UserController = require('../controllers/users');
 // const checkAuth = require('../lib/check-auth');
 
 
 //Products Routes
-router.get('/products', productController.findAll);
+router.get("/products", productsController.products_get_all);
 
-router.post('/products',productController.getProduct);
+router.post("/products", productsController.products_create_product);
 
-router.post('/products/create', productController.create);
+router.get("/products/:productId", productsController.products_get_product);
 
-router.get('/products/:id', productController.findOne);
+router.patch("/products/:productId", productsController.products_update_product);
 
-router.post('/products/:id', productController.update);
-
-router.delete('/products/:id', productController.delete);
+router.delete("/products/:productId", productsController.products_delete);
 
 
 //User Routes
 router.post("/user/signup", UserController.user_signup);
 
-router.get("/user/:userId",   UserController.curr_User);
+router.get("/user/:userId", UserController.curr_User);
 
-router.delete("/user/:userId",   UserController.user_delete);
+router.delete("/user/:userId", UserController.user_delete);
 
-router.put("/user/:userId",   UserController.user_edit);
+router.put("/user/:userId", UserController.user_edit);
 
 module.exports = router;

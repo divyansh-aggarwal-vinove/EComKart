@@ -7,8 +7,8 @@ const cartSchema = new Schema({
         ProductId: Schema.Types.ObjectId,
         Quantity: Number
     }],
-    createdAt: {type: Date, default: Date.now},
-    updatedAt: {type: Date, default: Date.now}
+    // createdAt: { type: Date, default: Date.now },
+    // updatedAt: { type: Date, default: Date.now }
 });
 
 const Cart = mongoose.model('Cart', cartSchema);

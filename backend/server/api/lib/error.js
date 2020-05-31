@@ -5,7 +5,7 @@ exports.NotFoundInCatch = (res, err, message) => {
 }
 
 exports.error500 = (res, message) => {
-    return res.status(500).send({ message, code: 500, success: false, data: null});
+    return res.status(500).send({ message, code: 500, success: false, data: null });
 }
 
 exports.error404 = (res, message) => {
@@ -20,6 +20,6 @@ exports.error422 = (res, err) => {
                 key, message: err.errors[key].message
             });
         }
-        return res.status(400).send({code: 422, success: false, data: null, validatorError});
+        return res.status(400).send({ code: 422, success: false, data: null, validatorError });
     }
 }

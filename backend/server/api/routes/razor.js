@@ -28,8 +28,8 @@ router.post('/', async (req, res) => {
 		console.log(response)
 		res.json({
 			id: response.id,
-			currency: response.currency,
-			amount: response.amount
+			// currency: response.currency,
+			// amount: response.amount
 		})
 	} catch (error) {
 		console.log(error)

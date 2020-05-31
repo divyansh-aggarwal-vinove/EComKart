@@ -6,7 +6,7 @@ const UserController = require('../controllers/users');
 
 
 //authentication of admin login 
-router.post('/admin/login',homecontroller.alogin);
+router.post('/admin/login', homecontroller.alogin);
 
 router.post("/user/login", UserController.user_login);
 
