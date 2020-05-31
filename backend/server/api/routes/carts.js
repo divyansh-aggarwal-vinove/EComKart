@@ -1,21 +1,21 @@
 const express = require('express');
 const router = express.Router();
 const cartController = require('../controllers/carts');
-// const authenticate=require('../authenticate');
+const checkAuth=require('../lib/check-auth');
 
 //adding products from dashboard to the cart
-router.post('/', cartController.create);
+router.post('/',checkAuth, cartController.create);
 
 //displaying all the products added in cart
-router.get('/:id', cartController.findOne);
+router.get('/:id', checkAuth ,cartController.findOne);
 
 //adding a product with a specific id
-router.post('/:id',cartController.updateCart);
+router.post('/:id', checkAuth ,cartController.updateCart);
 
-router.post('/update-item-qty/:id',cartController.updateCartItemQty);
+router.post('/update-item-qty/:id', checkAuth ,cartController.updateCartItemQty);
 
-router.post('/delete-item/:id',cartController.deleteCartItem);
+router.post('/delete-item/:id', checkAuth ,cartController.deleteCartItem);
 
-router.delete('/:id', cartController.delete);
-// authenticate.verifyUser ,
+router.delete('/:id', checkAuth , cartController.delete);
+
 module.exports = router;

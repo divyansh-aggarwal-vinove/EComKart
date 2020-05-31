@@ -5,8 +5,7 @@ const mongoose = require('mongoose');
 const cartRoute = require('./api/routes/carts');
 const adminRoute = require('./api/routes/admin');
 const homeRoute = require('./api/routes/home');
-const passport=require('passport');
-// const url = require('url');
+const razorRoute = require('./api/routes/razor');
 var config = require('./api/config');
 const Url = config.mongoUrl
 
@@ -22,13 +21,13 @@ app.use(bodyParser.json());
 
 app.use(cors());
 
-const PORT = process.env.PORT || 3003;
+const PORT = process.env.PORT || 3000;
 
-app.use(passport.initialize());
 
 app.use('/api/cart', cartRoute);
 app.use('/api/admin', adminRoute);
 app.use('/api/home', homeRoute);
+app.use('/api/razor',razorRoute);
 
 
 app.listen(PORT, () => {

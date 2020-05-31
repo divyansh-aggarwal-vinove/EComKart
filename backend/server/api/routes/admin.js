@@ -3,13 +3,13 @@ const express = require('express');
 const router = express.Router();
 const productController = require('../controllers/products');
 const UserController=require('../controllers/users');
-const checkAuth = require('../lib/check-auth');
+// const checkAuth = require('../lib/check-auth');
 
 
 //Products Routes
 router.get('/products', productController.findAll);
 
-router.post('/products', productController.getProduct);
+router.post('/products',productController.getProduct);
 
 router.post('/products/create', productController.create);
 
