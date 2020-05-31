@@ -19,6 +19,8 @@ router.delete("/products/:productId", productsController.products_delete);
 
 
 //User Routes
+router.get("/user", UserController.user_all);
+
 router.post("/user/signup", UserController.user_signup);
 
 router.get("/user/:userId", UserController.curr_User);

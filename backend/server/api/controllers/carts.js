@@ -29,10 +29,10 @@ const create = (req, res, next) => {
 };
 
 const findOne = (req, res, next) => {
-  Cart.findById(req.params.id)
+  Cart.findById(req.params.email)
     .select({ 'ProductIds._id': 0 })
     .then(cartOne => {
-      if (!cartOne) error404(res, "Cart not found with id " + req.params.id);
+      if (!cartOne) error404(res, "Cart not found with id " + req.params.email);
       const cart = cartOne;
       const ids = cart.ProductIds.map(m => m.ProductId);
       console.log(ids)

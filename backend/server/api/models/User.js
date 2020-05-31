@@ -27,7 +27,7 @@ const userSchema = mongoose.Schema({
     address: {
         type: String,
         required: [true, 'Address cannot be blank.']
-    },
+    }
 });
 
 const User = mongoose.model('User', userSchema);

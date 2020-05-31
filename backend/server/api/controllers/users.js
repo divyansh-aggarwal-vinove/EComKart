@@ -48,6 +48,34 @@ exports.user_signup = (req, res, next) => {
     });
 };
 
+
+exports.user_all = (req, res, next) => {
+  User.find()
+    .select("name age contactno address email")
+    .exec()
+    .then(docs => {
+      const response = {
+        count: docs.length,
+        products: docs.map(doc => {
+          return {
+            name: doc.name,
+            age:doc.age,
+            contactno: doc.contactno,
+            email: doc.email,
+            address:doc.address
+          };
+        })
+      };
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({
+        error: err
+      });
+    });
+};
+
+
 exports.user_login = (req, res, next) => {
   User.find({ email: req.body.email })
     .exec()
